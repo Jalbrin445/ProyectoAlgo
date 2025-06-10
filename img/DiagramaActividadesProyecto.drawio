@@ -1,0 +1,87 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
+  <diagram name="Page-1" id="e7e014a7-5840-1c2e-5031-d8a46d1fe8dd">
+    <mxGraphModel dx="342" dy="410" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="THeb9q07M7SpisKTVFQx-41" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="75" y="80" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-42" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="THeb9q07M7SpisKTVFQx-41" parent="1" target="THeb9q07M7SpisKTVFQx-64">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="25" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="THeb9q07M7SpisKTVFQx-43" target="THeb9q07M7SpisKTVFQx-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-43" value="Elegir sustancia" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="THeb9q07M7SpisKTVFQx-44" target="THeb9q07M7SpisKTVFQx-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-44" value="Mostrar mensaje de intervalo de temperatura admitido y unidad de temperatura recomendable" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="130" width="155" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="THeb9q07M7SpisKTVFQx-46" target="THeb9q07M7SpisKTVFQx-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-46" value="Escribir intervalo de temperatura" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="490" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="THeb9q07M7SpisKTVFQx-48" target="THeb9q07M7SpisKTVFQx-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-48" value="Escoger unidad de temperatura" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="640" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-54" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="THeb9q07M7SpisKTVFQx-50" target="THeb9q07M7SpisKTVFQx-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-56" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="THeb9q07M7SpisKTVFQx-50" target="THeb9q07M7SpisKTVFQx-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-50" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="155" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-53" value="Mensaje de error del intervalo" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="745" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-59" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="THeb9q07M7SpisKTVFQx-55" target="THeb9q07M7SpisKTVFQx-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-55" value="Mostrar la integral a calcular" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-57" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="THeb9q07M7SpisKTVFQx-53" target="THeb9q07M7SpisKTVFQx-46">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="815" y="195" as="sourcePoint" />
+            <mxPoint x="815" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="THeb9q07M7SpisKTVFQx-58" target="THeb9q07M7SpisKTVFQx-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-58" value="Calcular el cambio de la entalpía" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="THeb9q07M7SpisKTVFQx-60" target="THeb9q07M7SpisKTVFQx-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-60" value="Mostrar resultado y caracteristicas de sustancia en GUI" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-62" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="300" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="THeb9q07M7SpisKTVFQx-64" target="THeb9q07M7SpisKTVFQx-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="THeb9q07M7SpisKTVFQx-64" value="Abrir aplicación" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
