@@ -78,6 +78,9 @@ def InterfazJAMG():
             entryTfinalJAMG.insert(0, str(unionBase.TfinalJAMG))
             
             entryUndT.set(unionBase.UnidadTempJAMG)
+
+            # Mensaje de intervalo de temperatura
+            messagebox.showinfo("Información", f"El intervalo de temperatura permitido para la sustancia seleccionada es de {unionBase.TinicialJAMG} a {unionBase.TfinalJAMG} {unionBase.UnidadTempJAMG}")
             
             print("Datos cargados correctamente")
         else:
@@ -95,7 +98,36 @@ def InterfazJAMG():
             widget.config(font=("Arial", tamanoBase))
 
     widgetJAMGtxt = []
+    # Crear boton para calcular la entalpía.
+    def boton_calcular():
+        try:
+            # Obtener valores de los campos
+            sustancia = entrySustanciaJAMG.get()
+            Tinicial = float(entryTinicialJAMG.get())
+            Tfinal = float(entryTfinalJAMG.get())
+            unidad_temp = entryUndT.get()
 
+            # Validar datos
+            if not sustancia or not Tinicial or not Tfinal or unidad_temp not in ["Celsius (°C)", "Kelvin (K)"]:
+                messagebox.showerror("Error", "Por favor, complete todos los campos correctamente.")
+                return
+            
+            # Lógica de cálculo (placeholder)
+            print(f"Calculando entalpía para {sustancia} desde {Tinicial} a {Tfinal} en {unidad_temp}")
+            
+
+            
+
+        except ValueError:
+            messagebox.showerror("Error", "Por favor, ingrese valores numéricos válidos para las temperaturas.")
+    # Botón de calcular
+    botonCalcularJAMG = tk.Button(
+        ventanaJAMG, 
+        text="Calcular Entalpía", 
+        command=boton_calcular, 
+        bg=variables.COLORBOTON, 
+        font=("Arial", 12)
+    )
     # Cargar imagen del escudo
     try:
         escudoUdeAJAMG = Image.open(RutaUdeAJAMG)
@@ -108,11 +140,11 @@ def InterfazJAMG():
         tk.Label(contenedor_info, image=escudo_img, bg=variables.COLORFONDO).pack(side=tk.TOP, pady=(0,10))
         
         info_texto = """Juan Albrin Meza Guzmán (1)
-Alexander Usuga (1)
-Leyder Mausa (1)
-Mario Morelos (2)
-Ingeniería Agroindustrial (1), Ingeniería Bioquímica (2)
-Departamento de Ingeniería Química. Facultad de Ingeniería"""
+                        Alexander Usuga (1)
+                        Leyder Mausa (1)
+                        Mario Morelos (2)
+                        Ingeniería Agroindustrial (1), Ingeniería Bioquímica (2)
+                        Departamento de Ingeniería Química. Facultad de Ingeniería"""
         
         label_info = tk.Label(contenedor_info, text=info_texto, bg=variables.COLORFONDO, justify="center")
         label_info.pack(side=tk.TOP)
