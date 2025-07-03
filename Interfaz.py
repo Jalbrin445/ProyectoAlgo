@@ -65,6 +65,7 @@ def InterfazJAMG():
     entryUndT.place(relx=0.45, rely=0.20, relwidth=0.15, relheight=0.05)
     entryUndT.set("Celsius (°C)")
     tk.Label(ventanaJAMG, text="Unidad de temperatura:", bg=variables.COLORFONDO).place(relx=0.45, rely=0.15)
+    
 
     # Función para manejar selección de sustancia
     def on_sustancia_selected(event):
@@ -98,28 +99,10 @@ def InterfazJAMG():
             widget.config(font=("Arial", tamanoBase))
 
     widgetJAMGtxt = []
-    # Crear boton para calcular la entalpía.
+    
     def boton_calcular():
-        try:
-            # Obtener valores de los campos
-            sustancia = entrySustanciaJAMG.get()
-            Tinicial = float(entryTinicialJAMG.get())
-            Tfinal = float(entryTfinalJAMG.get())
-            unidad_temp = entryUndT.get()
-
-            # Validar datos
-            if not sustancia or not Tinicial or not Tfinal or unidad_temp not in ["Celsius (°C)", "Kelvin (K)"]:
-                messagebox.showerror("Error", "Por favor, complete todos los campos correctamente.")
-                return
-            
-            # Lógica de cálculo (placeholder)
-            print(f"Calculando entalpía para {sustancia} desde {Tinicial} a {Tfinal} en {unidad_temp}")
-            
-
-            
-
-        except ValueError:
-            messagebox.showerror("Error", "Por favor, ingrese valores numéricos válidos para las temperaturas.")
+        from integral import calculo_entalpia
+        calculo_entalpia(entrySustanciaJAMG, entryTinicialJAMG, entryTfinalJAMG, entryUndT)
     # Botón de calcular
     botonCalcularJAMG = tk.Button(
         ventanaJAMG, 
@@ -128,6 +111,8 @@ def InterfazJAMG():
         bg=variables.COLORBOTON, 
         font=("Arial", 12)
     )
+    botonCalcularJAMG.place(relx=0.05, rely=0.3, relwidth=0.15, relheight=0.05)
+    widgetJAMGtxt.append(botonCalcularJAMG)
     # Cargar imagen del escudo
     try:
         escudoUdeAJAMG = Image.open(RutaUdeAJAMG)

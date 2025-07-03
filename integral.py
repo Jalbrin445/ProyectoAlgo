@@ -1,20 +1,65 @@
 import sympy as sy
-import sys
+from tkinter import messagebox
 import unionBase
 
+def calculo_entalpia(entrySustanciaJAMG, entryTinicialJAMG, entryTfinalJAMG, entryUndT):
+    try:
+        # Obtener valores de los campos
+        sustancia = entrySustanciaJAMG.get()
+        Tinicial = float(entryTinicialJAMG.get())
+        Tfinal = float(entryTfinalJAMG.get())
+        unidad_temp = entryUndT.get()
 
+        # Validar datos básicos
+        if not sustancia or unidad_temp not in ["Celsius (°C)", "Kelvin (K)"]:
+            messagebox.showerror("Error", "Por favor, complete todos los campos correctamente.")
+            return
 
-T = sy.symbols("T")
+        # Verificar que se hayan cargado los datos de la sustancia
+        if not unionBase.cargar_datos_sustancia(sustancia):
+            messagebox.showerror("Error", "No se encontraron datos para esta sustancia.")
+            return
 
-if unionBase.FormaJAMG == 1:
-    resultado1 = sy.integrate((unionBase.A*(10**(-3))) + (unionBase.B*(10**(-5)))*T + (unionBase.C*(10**(-8)))*T**2 + (unionBase.D*(10**(-12)))*T**3)
-    resultado2 = sy.integrate(((unionBase.A*(10**(-3))) +(unionBase.B*(10**(-5)))*T + (unionBase.C*(10**(-8)))*T**2 + (unionBase.D*(10**(-12)))*T**3), (T, unionBase.TfinalJAMG, unionBase.TfinalJAMG))
+        # Validar rango de temperatura
+        if Tinicial < unionBase.TinicialJAMG or Tfinal > unionBase.TfinalJAMG:
+            messagebox.showerror("Error", 
+                f"Temperaturas fuera de rango. El intervalo permitido es: {unionBase.TinicialJAMG} a {unionBase.TfinalJAMG} {unionBase.UnidadTempJAMG}")
+            return
 
-elif unionBase.FormaJAMG == 2:
-    resultado1 = sy.intagrate((unionBase.A*(10**(-3))) +(unionBase.B*(10**(-5)))*T + (unionBase.C*(10**(-8)))*T**-2)
-    resultado2 = sy.intagrate(((unionBase.A*(10**(-3))) +(unionBase.B*(10**(-5)))*T + (unionBase.C*(10**(-8)))*T**-2), (T, unionBase.TinicialJAMG, unionBase.TfinalJAMG))
+        # Convertir temperaturas
+        if unidad_temp == "Celsius (°C)" and unionBase.UnidadTempJAMG == "K":
+            Tinicial += 273.15
+            Tfinal += 273.15
+        elif unidad_temp == "Kelvin (K)" and unionBase.UnidadTempJAMG == "C":
+            Tinicial -= 273.15
+            Tfinal -= 273.15
 
-if resultado2 != 0:
-    print(f"el valor del cambio de entalpia para el entre un intervalo de {unionBase.TfinalJAMG} - {unionBase.TfinalJAMG} {unionBase.UnidadTempJAMG} es de = {resultado2} Kj/mol*°C")
-    print(f"la integrar es: {resultado1}")
-salir = int(input("Usted desea seguir (escriba 0 para continuar y 1 o cualquier otro numero para no continuar: "))
+        T = sy.symbols("T")
+
+        if unionBase.FormaJAMG == 1:
+            resultado1 = sy.integrate((unionBase.A*(10**(-3))) + (unionBase.B*(10**(-5)))*T + (unionBase.C*(10**(-8)))*T**2 + (unionBase.D*(10**(-12)))*T**3, T)
+            resultado2 = sy.integrate((unionBase.A*(10**(-3))) + (unionBase.B*(10**(-5)))*T + (unionBase.C*(10**(-8)))*T**2 + (unionBase.D*(10**(-12)))*T**3, (T, Tinicial, Tfinal))
+
+        elif unionBase.FormaJAMG == 2:
+            resultado1 = sy.integrate((unionBase.A*(10**(-3))) + (unionBase.B*(10**(-5)))*T + (unionBase.C*(10**(-8)))*T**-2, T)
+            resultado2 = sy.integrate((unionBase.A*(10**(-3))) + (unionBase.B*(10**(-5)))*T + (unionBase.C*(10**(-8)))*T**-2, (T, Tinicial, Tfinal))
+
+        if resultado2 != 0:
+            # Verificar si el resultado es numérico
+            if not sy.core.numbers.Float(resultado2).is_finite:
+                messagebox.showerror("Error", "El cálculo produjo un resultado no numérico. Verifique los datos de entrada.")
+                return
+                
+            # Formatear el resultado solo si es numérico
+            resultado_formateado = f"{float(resultado2):.4f}" if sy.core.numbers.Float(resultado2).is_finite else "No calculable"
+            
+            messagebox.showinfo("Resultado", 
+                f"Cambio de entalpía para {sustancia}\n"
+                f"Intervalo: {entryTinicialJAMG.get()} - {entryTfinalJAMG.get()} {unidad_temp}\n"
+                f"Resultado: {resultado_formateado} kJ/mol\n"
+                f"Integral indefinida: {resultado1}")
+
+    except ValueError as e:
+        messagebox.showerror("Error", f"Error en los datos ingresados: {str(e)}")
+    except Exception as e:
+        messagebox.showerror("Error", f"Error inesperado: {str(e)}")
