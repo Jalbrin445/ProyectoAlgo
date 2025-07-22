@@ -6,13 +6,13 @@ from PIL import Image, ImageTk
 import unionBase
 
 def InterfazJAMG():
-    # Primero definir todas las rutas necesarias
+    # Rutas de archivos
     carpeta_principalJAMG = os.path.dirname(os.path.abspath(__file__))
     carpeta_imagenesJAMG = os.path.join(carpeta_principalJAMG, "img")
     RutaUdeAJAMG = os.path.join(carpeta_imagenesJAMG, "Logo_U.png")
     RutaIcono = os.path.join(carpeta_imagenesJAMG, "DeltaHX.ico")
 
-    # Inicializar datos
+    # Inicialización de datos
     dm = unionBase.inicializar_datos()  # Corregido el nombre de la función
 
     # Crear ventana principal
@@ -124,12 +124,11 @@ def InterfazJAMG():
         
         tk.Label(contenedor_info, image=escudo_img, bg=variables.COLORFONDO).pack(side=tk.TOP, pady=(0,10))
         
-        info_texto = """Juan Albrin Meza Guzmán (1)
-                        Alexander Usuga (1)
-                        Leyder Mausa (1)
-                        Mario Morelos (2)
-                        Ingeniería Agroindustrial (1), Ingeniería Bioquímica (2)
-                        Departamento de Ingeniería Química. Facultad de Ingeniería"""
+        info_texto = """
+            Juan Albrin Meza Guzmán (1)
+            Alexander Usuga (2)
+            Ingeniería Agroindustrial (1), (2)
+            Departamento de Ingeniería Química. Facultad de Ingeniería"""
         
         label_info = tk.Label(contenedor_info, text=info_texto, bg=variables.COLORFONDO, justify="center")
         label_info.pack(side=tk.TOP)

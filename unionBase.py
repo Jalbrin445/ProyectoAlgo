@@ -13,7 +13,7 @@ lista_sustancias = []
 def inicializar_datos():
     global df, lista_sustancias
     try:
-        df = pd.read_excel('BASEABC.xlsx', sheet_name='BASEABC', dtype_backend="pyarrow")
+        df = pd.read_excel('./BASEABC.xlsx', sheet_name='BASEABC', dtype_backend="pyarrow")
         lista_sustancias = df["Tipo de sustancia"].tolist()
         return True
     except Exception as e:
