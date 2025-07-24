@@ -45,7 +45,7 @@ def InterfazJAMG():
     entrySustanciaJAMG.set("Agua (g)" if unionBase.lista_sustancias else "No hay datos")
     
     tk.Label(ventanaJAMG, text="Sustancia:", bg=variables.COLORFONDO).place(relx=0.05, rely=0.02)
-
+    tk.Label(ventanaJAMG, text="Estado: g= gaseoso\n y l=liquido", bg=variables.COLORFONDO).place(relx=0.2, rely=0.07)
     # Widgets para temperatura
     entryTinicialJAMG = tk.Entry(ventanaJAMG, bg=variables.COLORFONDO, font=("Arial", 12))
     entryTinicialJAMG.place(relx=0.05, rely=0.20, relwidth=0.1, relheight=0.05)

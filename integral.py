@@ -29,9 +29,9 @@ def calculo_entalpia(entrySustanciaJAMG, entryTinicialJAMG, entryTfinalJAMG, ent
             Tfinal -= 273.15
             unidad_temp = "Kelvin (K)"
         if unidad_temp == "Kelvin (K)":
-            und_Ent = "Kj/mol*K"
+            und_Ent = "Kj/mol"
         elif unidad_temp == "Celsius (°C)":
-            und_Ent = "Kj/mol*°C"
+            und_Ent = "Kj/mol"
         # Validar rango de temperatura
         if Tinicial < unionBase.TinicialJAMG or Tfinal > unionBase.TfinalJAMG:
             messagebox.showerror("Error", 
@@ -45,10 +45,10 @@ def calculo_entalpia(entrySustanciaJAMG, entryTinicialJAMG, entryTfinalJAMG, ent
             resultado2 = sy.integrate((unionBase.A*(10**(-3))) + (unionBase.B*(10**(-5)))*T + (unionBase.C*(10**(-8)))*T**2 + (unionBase.D*(10**(-12)))*T**3, (T, Tinicial, Tfinal))
 
         elif unionBase.FormaJAMG == 2:
-            resultado1 = sy.integrate(round((unionBase.A*(10**(-3)),2)) + (round(unionBase.B*(10**(-5)), 2))*T + (round(unionBase.C*(10**(-8)), 2))*T**-2, T)
+            resultado1 = sy.integrate(((unionBase.A*(10**(-3)))) + ((unionBase.B*(10**(-5))))*T + ((unionBase.C*(10**(-8))))*T**-2, T)
             resultado2 = sy.integrate((unionBase.A*(10**(-3))) + (unionBase.B*(10**(-5)))*T + (unionBase.C*(10**(-8)))*T**-2, (T, Tinicial, Tfinal))
 
-        if resultado2 != 0:
+        if resultado2 != 0 or resultado2 == 0:
             # Verificar si el resultado es numérico
             if not sy.core.numbers.Float(resultado2).is_finite:
                 messagebox.showerror("Error", "El cálculo produjo un resultado no numérico. Verifique los datos de entrada.")
@@ -63,6 +63,7 @@ def calculo_entalpia(entrySustanciaJAMG, entryTinicialJAMG, entryTfinalJAMG, ent
                 f"Intervalo: {entryTinicialJAMG.get()} - {entryTfinalJAMG.get()} {unidad_temp}\n"
                 f"Resultado: {resultado_formateado} {und_Ent}\n"
                 f"Integral indefinida: {resultado1}")
+
 
     except ValueError as e:
         messagebox.showerror("Error", f"Error en los datos ingresados: {str(e)}")
